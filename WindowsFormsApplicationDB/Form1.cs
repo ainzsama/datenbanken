@@ -65,10 +65,34 @@ namespace WindowsFormsApplicationDB
             listBoxSaetze.Items.Clear();
             while (rd.Read())
             {
-                listBoxSaetze.Items.Add(rd["ArtikelNr"].ToString() + ":" + rd["Bezeichnung"].ToString());
+               
+                listBoxSaetze.Items.Add(makeArtikelObject(rd));
             }
             rd.Close();
             buttonRead.Enabled = false;
        }
+        private Artikel makeArtikelObject(OleDbDataReader reader)
+        {
+            Artikel a = new Artikel();
+            int i = 0;
+            if (!DBNull.Value.Equals(reader[i])) a.ArtikelOid = Convert.ToInt32(reader[i]);
+            i++;
+            if (!DBNull.Value.Equals(reader[i])) a.ArtikelNr = Convert.ToInt32(reader[i]);
+            i++;
+            if (!DBNull.Value.Equals(reader[i])) a.ArtikelGruppe = Convert.ToInt32(reader[i]);
+            i++;
+            if (!DBNull.Value.Equals(reader[i])) a.Bezeichnung = reader[i].ToString();
+            i++;
+            if (!DBNull.Value.Equals(reader[i])) a.Bestand = Convert.ToInt16(reader[i]);
+            i++;
+            if (!DBNull.Value.Equals(reader[i])) a.Meldebestand = Convert.ToInt16(reader[i]);
+            i++;
+            if (!DBNull.Value.Equals(reader[i])) a.Verpackung = Convert.ToInt32(reader[i]);
+            i++;
+            if (!DBNull.Value.Equals(reader[i])) a.VkPreis = Convert.ToDecimal(reader[i]);
+            i++;
+            if (!DBNull.Value.Equals(reader[i])) a.letzteEntnahme = Convert.ToDateTime(reader[i]);
+            return a;
+        }
     }
 }
