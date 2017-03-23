@@ -32,6 +32,8 @@
             this.buttonCom = new System.Windows.Forms.Button();
             this.buttonRead = new System.Windows.Forms.Button();
             this.listBoxSaetze = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxArtGr = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonCon
@@ -46,6 +48,7 @@
             // 
             // buttonCom
             // 
+            this.buttonCom.Enabled = false;
             this.buttonCom.Location = new System.Drawing.Point(126, 89);
             this.buttonCom.Name = "buttonCom";
             this.buttonCom.Size = new System.Drawing.Size(75, 23);
@@ -56,6 +59,7 @@
             // 
             // buttonRead
             // 
+            this.buttonRead.Enabled = false;
             this.buttonRead.Location = new System.Drawing.Point(126, 118);
             this.buttonRead.Name = "buttonRead";
             this.buttonRead.Size = new System.Drawing.Size(75, 23);
@@ -72,11 +76,29 @@
             this.listBoxSaetze.Size = new System.Drawing.Size(201, 173);
             this.listBoxSaetze.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(230, 89);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Artikelgruppe";
+            // 
+            // textBoxArtGr
+            // 
+            this.textBoxArtGr.Location = new System.Drawing.Point(305, 92);
+            this.textBoxArtGr.Name = "textBoxArtGr";
+            this.textBoxArtGr.Size = new System.Drawing.Size(100, 20);
+            this.textBoxArtGr.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 408);
+            this.ClientSize = new System.Drawing.Size(764, 593);
+            this.Controls.Add(this.textBoxArtGr);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxSaetze);
             this.Controls.Add(this.buttonRead);
             this.Controls.Add(this.buttonCom);
@@ -84,6 +106,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -93,6 +116,8 @@
         private System.Windows.Forms.Button buttonCom;
         private System.Windows.Forms.Button buttonRead;
         private System.Windows.Forms.ListBox listBoxSaetze;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxArtGr;
     }
 }
 

@@ -30,6 +30,12 @@ namespace WindowsFormsApplicationDB
             try
             {
                 con.Open();
+                buttonCom.Enabled = true;
+                com = con.CreateCommand();
+                com.Parameters.Add("AGR", OleDbType.Integer);
+                String artgr = textBoxArtGr.Text;
+                com.CommandText = "Select * from tArtikel where Artikelgruppe = AGR";
+                com.CommandType = CommandType.Text;
             }
             catch (OleDbException ex)
             {
@@ -40,12 +46,12 @@ namespace WindowsFormsApplicationDB
 
         private void buttonCom_Click(object sender, EventArgs e)
         {
-            com = con.CreateCommand();
-            com.CommandText = "tArtikel";
-            com.CommandType = CommandType.TableDirect;
+            
             try
             {
+                com.Parameters["AGR"].Value = textBoxArtGr.Text;
                 rd = com.ExecuteReader();
+                buttonRead.Enabled = true;
             }
             catch (OleDbException ex)
             {
@@ -56,12 +62,13 @@ namespace WindowsFormsApplicationDB
 
         private void buttonRead_Click(object sender, EventArgs e) 
         {
-            
+            listBoxSaetze.Items.Clear();
             while (rd.Read())
             {
                 listBoxSaetze.Items.Add(rd["ArtikelNr"].ToString() + ":" + rd["Bezeichnung"].ToString());
             }
             rd.Close();
-        }
+            buttonRead.Enabled = false;
+       }
     }
 }
