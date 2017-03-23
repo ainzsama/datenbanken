@@ -23,10 +23,10 @@ namespace WindowsFormsApplicationDB
 
         private void buttonCon_Click(object sender, EventArgs e)
         {
-            OleDbConnectionStringBuilder bldr = new OleDbConnectionStringBuilder();
-            bldr.Provider = "Microsoft.ACE.OLEDB.12.0";
-            bldr.DataSource = "Bestellung.accdb";
-            con = new OleDbConnection(bldr.ConnectionString);
+            //OleDbConnectionStringBuilder bldr = new OleDbConnectionStringBuilder();
+            //bldr.Provider = "Microsoft.ACE.OLEDB.12.0";
+            //bldr.DataSource = "Bestellung.accdb";
+            con = new OleDbConnection(Properties.Settings.Default.DBCon);
             try
             {
                 con.Open();
