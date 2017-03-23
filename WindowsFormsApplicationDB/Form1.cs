@@ -54,7 +54,7 @@ namespace WindowsFormsApplicationDB
             }
         }
 
-        private void buttonRead_Click(object sender, EventArgs e)
+        private void buttonRead_Click(object sender, EventArgs e) 
         {
             
             while (rd.Read())
