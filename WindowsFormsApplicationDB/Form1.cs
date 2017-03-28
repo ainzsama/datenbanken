@@ -31,6 +31,7 @@ namespace WindowsFormsApplicationDB
             {
                 con.Open();
                 buttonCom.Enabled = true;
+                buttonCreateArticle.Enabled = true;
                 com = con.CreateCommand();
                 com.Parameters.Add("AGR", OleDbType.Integer);
                 String artgr = textBoxArtGr.Text;
@@ -93,6 +94,16 @@ namespace WindowsFormsApplicationDB
             i++;
             if (!DBNull.Value.Equals(reader[i])) a.letzteEntnahme = Convert.ToDateTime(reader[i]);
             return a;
+            
+        }
+
+        private void buttonCreateArticle_Click(object sender, EventArgs e)
+        {
+            ArtikelUpdate art = new ArtikelUpdate();
+            art.neu = true;
+            art.Con = con;
+            art.ShowDialog();
+
         }
     }
 }
