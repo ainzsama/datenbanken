@@ -54,7 +54,7 @@ namespace WindowsFormsApplicationDB
             com.Parameters.Add("Verpackung", OleDbType.Integer);
             com.Parameters.Add("Preis", OleDbType.Currency);
             com.Parameters.Add("LetzteEnt", OleDbType.Date);
-            com.CommandText = "insert into artikel values(Nr, Gruppe, Bez, Bestand, MeldeBest, Verpackung, Preis, LetzteEnt)";
+            com.CommandText = "insert into artikel values(Nr, Gruppe, Bez, Bestand, MeldeBest, Verpackung, Preis, LetzteEnt)"; // Spalten angeben
         }
         private void buttonAendern_Click(object sender, EventArgs e)
         {
