@@ -22,5 +22,7 @@ namespace WindowsFormsApplicationDB
         {
             return ArtikelNr.ToString() + ":" + Bezeichnung;
         }
+
+        
     }
 }

@@ -47,14 +47,37 @@ namespace WindowsFormsApplicationDB
         {
             OleDbCommand com = con.CreateCommand();
             com.Parameters.Add("Nr", OleDbType.WChar);
-            com.Parameters.Add("Gruppe", OleDbType.Integer);
+            com.Parameters.Add("Gr", OleDbType.Integer);
             com.Parameters.Add("Bez", OleDbType.WChar);
-            com.Parameters.Add("Bestand", OleDbType.UnsignedTinyInt);
-            com.Parameters.Add("MeldeBest", OleDbType.SmallInt);
-            com.Parameters.Add("Verpackung", OleDbType.Integer);
-            com.Parameters.Add("Preis", OleDbType.Currency);
-            com.Parameters.Add("LetzteEnt", OleDbType.Date);
-            com.CommandText = "insert into artikel values(Nr, Gruppe, Bez, Bestand, MeldeBest, Verpackung, Preis, LetzteEnt)"; // Spalten angeben
+         
+            com.Parameters.Add("Verp", OleDbType.Integer);
+        
+            
+            com.CommandText = "insert into tArtikel(ArtikelNr, ArtikelGruppe, Bezeichnung, Verpackung) values(Nr, Gr, Bez, Verp)"; // Spalten angeben
+
+            com.Parameters["Nr"].Value = textBoxNr.Text;
+            com.Parameters["Gr"].Value = textBoxGruppe.Text;
+           
+            com.Parameters["Bez"].Value = textBoxBez.Text;
+            
+            com.Parameters["Verp"].Value = textBoxVerpackung.Text;
+           
+           
+
+            try
+            {
+                com.ExecuteNonQuery();
+
+                com.CommandText = "Select @@IDENTITY from tArtikel";
+                int aw = (Int32)com.ExecuteScalar();
+                textBoxId.Text = aw.ToString();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Fehler");
+            }
+           
         }
         private void buttonAendern_Click(object sender, EventArgs e)
         {
@@ -133,18 +156,6 @@ namespace WindowsFormsApplicationDB
             }
         }
 
-        private void textBoxLetzteEntnahme_Validating(object sender, CancelEventArgs e)
-        {
-            DateTime i;
-            try
-            {
-                i = Convert.ToDateTime(textBoxLetzteEntnahme.Text);
-            }
-            catch
-            {
-                MessageBox.Show("muss Datum sein");
-                e.Cancel = true;
-            }
-        }
+        
     }
 }

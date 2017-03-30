@@ -16,9 +16,11 @@ namespace WindowsFormsApplicationDB
         OleDbConnection con;
         OleDbCommand com;
         OleDbDataReader rd;
+        List<Artikel> listArt = null;
         public Form1()
         {
             InitializeComponent();
+            listArt = new List<Artikel>();
         }
 
         private void buttonCon_Click(object sender, EventArgs e)
@@ -63,13 +65,17 @@ namespace WindowsFormsApplicationDB
 
         private void buttonRead_Click(object sender, EventArgs e) 
         {
-            listBoxSaetze.Items.Clear();
+            listArt.Clear();
+            listBoxSaetze.Refresh();
             while (rd.Read())
             {
-               
-                listBoxSaetze.Items.Add(makeArtikelObject(rd));
+
+                // listBoxSaetze.Items.Add(makeArtikelObject(rd));
+                listArt.Add(makeArtikelObject(rd));
             }
             rd.Close();
+            listBoxSaetze.DataSource = listArt;
+            listBoxSaetze.DisplayMember = "Display";
             buttonRead.Enabled = false;
        }
         private Artikel makeArtikelObject(OleDbDataReader reader)

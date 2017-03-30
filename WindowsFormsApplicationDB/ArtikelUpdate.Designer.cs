@@ -36,7 +36,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.textBoxNr = new System.Windows.Forms.TextBox();
             this.textBoxGruppe = new System.Windows.Forms.TextBox();
@@ -45,7 +44,6 @@
             this.textBoxMeldeBestand = new System.Windows.Forms.TextBox();
             this.textBoxVerpackung = new System.Windows.Forms.TextBox();
             this.textBoxPreis = new System.Windows.Forms.TextBox();
-            this.textBoxLetzteEntnahme = new System.Windows.Forms.TextBox();
             this.buttonAendern = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -122,15 +120,6 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Verkaufspreis";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(52, 269);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "letzte Entnahme";
-            // 
             // textBoxId
             // 
             this.textBoxId.Enabled = false;
@@ -193,14 +182,6 @@
             this.textBoxPreis.TabIndex = 16;
             this.textBoxPreis.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPreis_Validating);
             // 
-            // textBoxLetzteEntnahme
-            // 
-            this.textBoxLetzteEntnahme.Location = new System.Drawing.Point(209, 266);
-            this.textBoxLetzteEntnahme.Name = "textBoxLetzteEntnahme";
-            this.textBoxLetzteEntnahme.Size = new System.Drawing.Size(100, 20);
-            this.textBoxLetzteEntnahme.TabIndex = 17;
-            this.textBoxLetzteEntnahme.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLetzteEntnahme_Validating);
-            // 
             // buttonAendern
             // 
             this.buttonAendern.Location = new System.Drawing.Point(97, 360);
@@ -227,7 +208,6 @@
             this.ClientSize = new System.Drawing.Size(543, 474);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAendern);
-            this.Controls.Add(this.textBoxLetzteEntnahme);
             this.Controls.Add(this.textBoxPreis);
             this.Controls.Add(this.textBoxVerpackung);
             this.Controls.Add(this.textBoxMeldeBestand);
@@ -236,7 +216,6 @@
             this.Controls.Add(this.textBoxGruppe);
             this.Controls.Add(this.textBoxNr);
             this.Controls.Add(this.textBoxId);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -262,7 +241,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.TextBox textBoxNr;
         private System.Windows.Forms.TextBox textBoxGruppe;
@@ -271,7 +249,6 @@
         private System.Windows.Forms.TextBox textBoxMeldeBestand;
         private System.Windows.Forms.TextBox textBoxVerpackung;
         private System.Windows.Forms.TextBox textBoxPreis;
-        private System.Windows.Forms.TextBox textBoxLetzteEntnahme;
         private System.Windows.Forms.Button buttonAendern;
         private System.Windows.Forms.Button buttonCancel;
     }
